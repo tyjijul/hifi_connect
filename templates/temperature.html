@@ -1,0 +1,273 @@
+{% include 'header.html' %}
+
+            <!-- MAIN CONTENT-->
+            <!-- <div class="main-content"> -->
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Température</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-25">
+                            <div class="col-md-4">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="fa fa-home"></i>
+                                            </div>
+                                            <div class="text">
+                                                <span>Salon : </span>
+                                                <h2 id="time_left">20°C</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="overview-item overview-item--c4">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="fa fa-bed"></i>
+                                            </div>
+                                            <div class="text">
+                                                <span>Chambre : </span>
+                                                <h2 id="time_left">20°C</h2>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="fa fa-tree"></i>
+                                            </div>
+                                            <div class="text">
+                                                <span>Extérieur : </span>
+                                                <h2 id="time_left">5°C</h2>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-lg-6">
+                                <div class="au-card m-b-30">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2 m-b-40">Yearly Sales</h3>
+                                        <canvas id="two-days-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                           <!--  <div class="col-lg-6 m-t-25">
+                                <div class="au-card chart-percent-card">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2 m-b-20">Timer Start</h3>
+                                        <div class="row ">
+                                            
+                                                <div class="col-md-6 p-b-10">
+                                                    <button type="button" onclick="timer_start(0,30)" class="btn btn-md btn-secondary col-md-12 " >30m
+                                                    </button>
+
+                                                </div>
+                                                <div class="col-md-6 p-b-10">
+                                                    <button type="button" onclick="timer_start(1,0)" class="btn btn-md btn-secondary col-md-12" >1H
+                                                    </button>
+                                                </div>
+                                        </div>
+                                        <div class="row ">
+                                                <div class="col-md-6 p-b-10">
+                                                    <button type="button" onclick="timer_start(1,30)" class="btn btn-md btn-secondary col-md-12" >1H30m
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6 p-b-10">
+                                                    <button type="button" onclick="timer_start(2,0)" class="btn btn-md btn-secondary col-md-12" >2H
+                                                    </button>
+                                                </div>
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>De moi pour moi ! (le bootstrap c'est coolAdmin sinon).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <script>
+        //window.onload = volume_get();
+
+        // function volume_up(){
+        //     var req = new XMLHttpRequest()
+        //         req.onreadystatechange = function(){
+        //             if (req.readyState == 4){
+        //                     var response = JSON.parse(req.responseText)
+        //                     console.log = response.out
+        //                     document.getElementById('vol').innerHTML = response.T1
+        //         }}
+        //         req.open('POST', '/volume_up')
+        //         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        //         var postVars = 'username=1'
+        //         req.send(postVars)
+        //     return false
+        // }
+
+        // function volume_down(){
+        //     var req = new XMLHttpRequest()
+        //         req.onreadystatechange = function(){
+        //             if (req.readyState == 4){
+        //                     var response = JSON.parse(req.responseText)
+        //                     console.log = response.out
+        //                     document.getElementById('vol').innerHTML = response.T1
+        //         }}
+        //         req.open('POST', '/volume_down')
+        //         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        //         var postVars = 'username=1'
+        //         req.send(postVars)
+        //     return false
+        // }
+
+        // function volume_get(){
+        //     var req = new XMLHttpRequest()
+        //     req.onreadystatechange = function(){
+        //             if (req.readyState == 4){
+        //                 var response = JSON.parse(req.responseText)
+        //                 console.log = response.out
+        //                 document.getElementById('vol').innerHTML = response.T1
+        //         }}
+        //     req.open('POST', '/volume_get')
+        //     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        //     var postVars = 'username=1'
+        //     req.send(postVars)
+        //     return false
+        // }
+
+        // // TIMER //
+        // function timer_start(h,m){
+        //     var req = new XMLHttpRequest()
+        //         req.onreadystatechange = function(){
+        //             if (req.readyState == 4){
+        //                 var response = JSON.parse(req.responseText)
+        //                 console.log = response.out
+        //                 // document.getElementById('vol').innerHTML = response.T1
+        //         }}
+        //         req.open('POST', '/timer_start/h/m')
+        //         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        //         var postVars = 'username=1'
+        //         req.send(postVars)
+        //     var t_left = 30;
+        //     while(t_left != 0){
+        //         t_left = timer_get();
+        //         time.sleep(1)
+        //     }
+        // }
+
+        // // function timer_set(duree){
+        // //     var req = new XMLHttpRequest()
+        // //         req.onreadystatechange = function(){
+        // //             if (req.readyState == 4){
+        // //                 var response = JSON.parse(req.responseText)
+        // //                 console.log = response.out
+        // //                 // document.getElementById('vol').innerHTML = response.T1
+        // //         }}
+        // //         req.open('POST', '/timer_set/0/0/10')
+        // //         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        // //         var postVars = 'username=1'
+        // //         req.send(postVars)
+
+        // // }
+
+        // function timer_get(){
+        //     var req = new XMLHttpRequest()
+        //         req.onreadystatechange = function(){
+        //             if (req.readyState == 4){
+        //                 var response = JSON.parse(req.responseText)
+        //                 console.log = response.out
+        //                 document.getElementById('time_left').innerHTML = response.T1
+        //                 return response.T1
+        //         }}
+        //         req.open('POST', '/timer_get')
+        //         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        //         var postVars = 'username=1'
+        //         req.send(postVars)
+
+        // }
+
+        // function timer_stop(){
+        //     var req = new XMLHttpRequest()
+        //         req.onreadystatechange = function(){
+        //             if (req.readyState == 4){
+        //                 var response = JSON.parse(req.responseText)
+        //                 console.log = response.out
+        //                 // document.getElementById('time_left').innerHTML = response.T1
+        //         }}
+        //         req.open('POST', '/timer_stop')
+        //         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        //         var postVars = 'username=1'
+        //         req.send(postVars)
+        // }
+
+        // setInterval(function() {
+        //   timer_get()
+        // }, 5000);
+
+
+        
+    </script>
+    <!-- Jquery JS-->
+    <script src="static/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="static/bootstrap-4.1/popper.min.js"></script>
+    <script src="static/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- static JS       -->
+    <script src="static/slick/slick.min.js">
+    </script>
+    <script src="static/wow/wow.min.js"></script>
+    <script src="static/animsition/animsition.min.js"></script>
+    <script src="static/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="static/counter-up/jquery.waypoints.min.js"></script>
+    <script src="static/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="static/circle-progress/circle-progress.min.js"></script>
+    <script src="static/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="static/chartjs/Chart.bundle.min.js"></script>
+    <script src="static/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->

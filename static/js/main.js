@@ -783,6 +783,142 @@
     console.log(error);
   }
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+try {
+    //Sales chart
+    var ctx = document.getElementById("two-days-chart");
+    if (ctx) {
+      /// GET DATAS ////
+      var req = new XMLHttpRequest()
+      req.onreadystatechange = function(){
+              if (req.readyState == 4){
+                  var response = JSON.parse(req.responseText)
+                  console.log(response.T1[0])
+                  
+
+                  /// CHART FORM ////
+                    var ctx = document.getElementById("two-days-chart");
+                    ctx.height = 150;
+                    var myChart = new Chart(ctx, {
+                      type: 'line',
+                      data: {
+                        // labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+                        labels: response.T1[0],
+                        type: 'line',
+                        defaultFontFamily: 'Poppins',
+                        datasets: [{
+                          label: "Salon",
+                          // data: [0, 30, 10, 120, 50, 63, 10],
+                          data: response.T1[1],
+                          backgroundColor: 'transparent',
+                          borderColor: 'rgba(220,53,69,0.75)',
+                          borderWidth: 3,
+                          pointStyle: 'circle',
+                          pointRadius: 5,
+                          pointBorderColor: 'transparent',
+                          pointBackgroundColor: 'rgba(220,53,69,0.75)',
+                        }, {
+                          label: "Chambre",
+                          data: response.T1[2],
+                          backgroundColor: 'transparent',
+                          borderColor: 'rgba(40,167,69,0.75)',
+                          borderWidth: 3,
+                          pointStyle: 'circle',
+                          pointRadius: 5,
+                          pointBorderColor: 'transparent',
+                          pointBackgroundColor: 'rgba(40,167,69,0.75)',
+                        }, {
+                          label: "Extérieur",
+                          data: response.T1[3],
+                          backgroundColor: 'transparent',
+                          borderColor: 'rgba(40,167,69,0.75)',
+                          borderWidth: 3,
+                          pointStyle: 'circle',
+                          pointRadius: 5,
+                          pointBorderColor: 'transparent',
+                          pointBackgroundColor: 'rgba(40,167,69,0.75)',
+                        }]
+                      },
+                      options: {
+                        responsive: true,
+                        tooltips: {
+                          mode: 'index',
+                          titleFontSize: 12,
+                          titleFontColor: '#000',
+                          bodyFontColor: '#000',
+                          backgroundColor: '#fff',
+                          titleFontFamily: 'Poppins',
+                          bodyFontFamily: 'Poppins',
+                          cornerRadius: 3,
+                          intersect: false,
+                        },
+                        legend: {
+                          display: false,
+                          labels: {
+                            usePointStyle: true,
+                            fontFamily: 'Poppins',
+                          },
+                        },
+                        scales: {
+                          xAxes: [{
+                            display: true,
+                            gridLines: {
+                              display: false,
+                              drawBorder: false
+                            },
+                            scaleLabel: {
+                              display: false,
+                              labelString: 'Month'
+                            },
+                            ticks: {
+                              fontFamily: "Poppins"
+                            }
+                          }],
+                          yAxes: [{
+                            display: true,
+                            gridLines: {
+                              display: false,
+                              drawBorder: false
+                            },
+                            scaleLabel: {
+                              display: true,
+                              labelString: 'Value',
+                              fontFamily: "Poppins"
+
+                            },
+                            ticks: {
+                              fontFamily: "Poppins"
+                            }
+                          }]
+                        },
+                        title: {
+                          display: false,
+                          text: 'Normal Legend'
+                        }
+                      }
+                    });
+
+
+
+          }}
+      req.open('POST', '/graph')
+      req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+      var postVars = 'username=1'
+      req.send(postVars)
+
+       // console.log(response.T1[0])
+
+      
+    }
+
+
+  } catch (error) {
+    console.log(error);
+  }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
   try {
 
     //Team chart

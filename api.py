@@ -19,6 +19,10 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
+@app.route('/temperature')
+def temperature():
+	return render_template('temperature.html')
+
 @app.route('/admin')
 def admin():
 	return render_template('admin.html')
@@ -80,6 +84,12 @@ def timer_stop():
 	chrono.stop()
 	return jsonify(T1="ok")
 
+####  DATA TEMPERATURE  ###################################
+@app.route('/graph', methods = ['GET', 'POST'])
+def graph():
+	print('graph_get')
+	data = [["2h","3h","4h","5h","6h","7h","8h","9h"],[10,10,11,12,13,14,15,14],[2,3,4,6,5,3,2,1],[19,13,12,15,16,19,22,23]]
+	return jsonify(T1=data)
 
 
 

@@ -110,7 +110,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                    <p>De moi pour moi ! (le bootstrap c'est coolAdmin sinon).</p>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                         console.log = response.out
                         // document.getElementById('vol').innerHTML = response.T1
                 }}
-                req.open('POST', '/timer_start/h/m')
+                req.open('POST', '/timer_start/'+h+'/'+m+'/')
                 req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
                 var postVars = 'username=1'
                 req.send(postVars)
